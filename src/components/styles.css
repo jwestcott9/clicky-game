@@ -1,0 +1,47 @@
+/* 
+let style={
+    height: '175px',
+    width: '175px',
+    padding: '5px',
+    
+}
+
+let row = {
+ background: "grey",
+  width: "100%",
+  margin: "0 auto"
+}
+
+let gridStyle = {
+ 
+  width: "50%",
+  margin: "0 auto"
+} */
+
+.gridStyle {
+    width: 50%;
+    margin: 0 auto
+}
+.floatingTitle{
+    color:white;
+    margin: auto auto;
+}
+
+.character-card {
+    height: auto;
+    width: 25%;
+    padding: 5px;
+}
+.banner {
+    height: 50px;
+    background: gray;
+    margin: 0px 20% 20px 20%;
+   
+    
+}
+
+@media only screen and (max-width: 1150px){
+    .gridStyle{
+        width: 90%
+    }
+}
