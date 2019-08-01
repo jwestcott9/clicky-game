@@ -3,6 +3,8 @@ import {Jumbotron, Row} from "reactstrap";
 import "./styles.css"
 
 
+    
+    
 const Banner  = ()=>{
     return (<>
         <Row className="banner">    
@@ -13,5 +15,6 @@ const Banner  = ()=>{
         </>
     )
 };
+
 
 export default Banner;

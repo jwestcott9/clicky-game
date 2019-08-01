@@ -1,23 +1,25 @@
 import React from "react";
 import {Button, Row, Col} from "reactstrap";
+import ReactDOM from "react-dom"
 
 
 let bar = {
-    background:"white"
+    background:"lightblue"
 }
 
 
-let score = {
-    float: "right",
-    textAlign: "left"
-}
-let placeholder = 0;
+let scorePlaceholder = -1;
 
 
-// this is where you can pass in properties
-// put props into the parens 
 
-const LogoBar = (props) =>{
+
+
+function Logic (props){
+    scorePlaceholder++;
+    console.log(scorePlaceholder)
+    
+    
+
     return(
         <Row style= {bar}>
         <Col md = "2"> </Col>
@@ -25,15 +27,20 @@ const LogoBar = (props) =>{
         <Col >
         </Col>
         <Col >
-        High Score: {props.highScore}           Your Score: {props.score}
+        High Score: 0           Your Score: {scorePlaceholder}
         </Col>
         <Col md ="1">
         </Col>
         </Row>
     )
+    
+
 }
 
 
 
 
-export default LogoBar; 
+
+
+
+export { Logic}; 
