@@ -1,17 +1,9 @@
 import React from "react";
 import {Row} from 'reactstrap';
 import images from '../images.json';
-import {LogoBar, Logic} from "./LogoBar";
+import {LogoBar} from "./LogoBar";
 import Banner from "./Banner";
 import "./styles.css"
-import ReactDOM from 'react-dom'
-
-let style={
-    height: '175px',
-    width: '175px',
-    padding: '5px',
-    
-}
 
 let row = {
  background: "grey",
@@ -19,34 +11,31 @@ let row = {
   margin: "0 auto"
 }
 
-let gridStyle = {
- 
-  width: "50%",
-  margin: "0 auto"
-}
-
-let arrayPlaceholder = [];
-let scorePlaceholder = 0;
-let placeholder= [];
-
-
-
 class Grid extends React.Component {
-  // this has too many statefUl properties figure out how to seperate out the functionality
+  constructor(props){
+    super(props);
+  }
+ 
  state={
     orderArray: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
     images:[images[0], images[1], images[2], images[3],images[4], images[5], images[6], images[7],images[8], images[9], images[10], images[11],images[12], images[13], images[14], images[15],],
     idLog:[] ,
-    score: 0 
+    score: 0,
+    highScore: 0,
     
 
  };
 
  lose = () => {
    console.log("you lose")
-
+   this.setState({score: 0, idLog:[]})
+   alert("You Lost!!!!")
  }
 
+ win = () => {
+    alert("You win!!!")
+    this.setState({score:0, idLog:[]})
+ }
 
 
 shuffle = (event) => {
@@ -57,9 +46,17 @@ shuffle = (event) => {
         
         console.log(this.state.idLog)
         console.log(this.state.idLog.indexOf(event.target.id))
-
+      
 
         if(this.state.idLog.indexOf(event.target.id)===-1){
+          this.setState({score: this.state.score+1}, ()=>{
+            if(this.state.score>this.state.highScore){
+              this.setState({highScore:this.state.score})
+            }
+            if(this.state.score === 16){
+              this.win();
+            }
+          })
           copy.push(event.target.id);
           this.setState({idLog:copy}, ()=>{
           console.log(this.state.idLog)
@@ -85,7 +82,7 @@ render(){
   
 return(
 <>
-  <Logic > </Logic>
+  <LogoBar {...this.state} > </LogoBar>
   <Banner></Banner>  
    
   <div className = "gridStyle"> 

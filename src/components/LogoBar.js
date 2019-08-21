@@ -10,16 +10,9 @@ let bar = {
 
 let scorePlaceholder = -1;
 
-
-
-
-
-function Logic (props){
-    scorePlaceholder++;
-    console.log(scorePlaceholder)
+class LogoBar extends React.Component{
     
-    
-
+render(){
     return(
         <Row style= {bar}>
         <Col md = "2"> </Col>
@@ -27,14 +20,13 @@ function Logic (props){
         <Col >
         </Col>
         <Col >
-        High Score: 0           Your Score: {scorePlaceholder}
+        High Score: {this.props.highScore}           Your Score: {this.props.score}
         </Col>
         <Col md ="1">
         </Col>
         </Row>
     )
-    
-
+}
 }
 
 
@@ -43,4 +35,8 @@ function Logic (props){
 
 
 
-export { Logic}; 
+
+
+
+
+export { LogoBar}; 
